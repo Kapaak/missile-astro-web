@@ -1,0 +1,46 @@
+---
+import LecturePackage from "@components/LecturePackage.astro";
+import LectureTypes from "@components/LectureTypes.svelte";
+import LectureLength from "@components/LectureLength.svelte";
+import Layout from "@layouts/Layout.astro";
+import Button from "@styles/Button.astro";
+import Section from "@styles/Section.astro";
+import Text from "@styles/Text.astro";
+import Title from "@styles/Title.astro";
+---
+
+<Layout title="Angličtina | Petr Walach">
+  <main>
+    <Section>
+      <Title>Ceník</Title>
+      <Text>
+        Zajišťuji také firemní a skupinové kurzy, telefonickou výuku,
+        rychlokurzy angličtiny (například přípravu na pracovní pohovor),
+        případně doprovody, tlumočení či překlady. Vše záleží na naší
+        individuální domluvě. Zaujal jsem Vás? Budu rád, pokud mi napíšete či
+        zavoláte.
+      </Text>
+      <br />
+      <div class="flex flex-col gap-5">
+        <Text>Vyberte si preferovaný balíček a délku lekce:</Text>
+
+        <LectureTypes client:load />
+        <LectureLength client:load />
+
+        <LecturePackage
+          lecturesNumber={1}
+          price={1000}
+          descriptions={[
+            "vhodné na vyzkoušení",
+            "online",
+            "seznam zdrojů a aplikací pro samostudium",
+          ]}
+        />
+      </div>
+
+      <Button>
+        <a download="">Podmínky spolupráce a platba</a>
+      </Button>
+    </Section>
+  </main>
+</Layout>

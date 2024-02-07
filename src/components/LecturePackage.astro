@@ -1,0 +1,41 @@
+---
+import Button from "@styles/Button.astro";
+import Text from "@styles/Text.astro";
+
+interface Props {
+  lecturesNumber: number;
+  price: number;
+  descriptions: string[];
+}
+
+import { formatLocalePrice } from "@utils";
+
+const { descriptions, lecturesNumber, price } = Astro.props;
+
+const totalPrice = formatLocalePrice(price);
+
+const title =
+  lecturesNumber < 3 ? `${lecturesNumber} lekce` : `${lecturesNumber} lekcí`;
+
+const pricePerLecture = formatLocalePrice(price / lecturesNumber);
+//TODO prepis do svelte, napoj na writable-store a vkladej data z astra sanity sem a podle storu zobrazuj data
+---
+
+<div class="flex flex-col gap-5 border border-white px-[2.4rem] py-[2.6rem]">
+  <Text>balíček</Text>
+  <Text className="text-secondary text-[3rem]">{title}</Text>
+  <Text className="text-[3rem]">{totalPrice}</Text>
+  <Text>{pricePerLecture} / lekci</Text>
+
+  <ul class="ml-6">
+    {
+      descriptions.map((description) => (
+        <li class="list-image-[url(src/assets/completed.png)]">
+          <Text className="ml-1">{description}</Text>
+        </li>
+      ))
+    }
+  </ul>
+
+  <Button>Mám zájem</Button>
+</div>

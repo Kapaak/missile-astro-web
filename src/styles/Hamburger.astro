@@ -1,0 +1,27 @@
+---
+interface Props {
+	className?: HTMLHtmlElement["className"];
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div
+	class={`hamburger cursor-pointer inline-flex flex-col items-end py-[3rem] gap-[1.2rem] ${className}`}
+>
+	<span class="line bg-grey-200 h-1 w-[3.4rem] rounded transition-all"></span>
+	<span class="line bg-grey-200 h-1 w-[3.4rem] rounded transition-all"></span>
+	<span class="line bg-grey-200 h-1 w-[3.4rem] rounded transition-all"></span>
+</div>
+
+<style>
+	.hamburger.active .line:nth-child(1) {
+		transform: rotate(-45deg) translate(-15px, 7px);
+	}
+	.hamburger.active .line:nth-child(2) {
+		opacity: 0;
+	}
+	.hamburger.active .line:nth-child(3) {
+		transform: rotate(45deg) translate(-15px, -7px);
+	}
+</style>

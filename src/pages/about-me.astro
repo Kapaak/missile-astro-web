@@ -1,0 +1,41 @@
+---
+import Title from "@styles/Title.astro";
+import Layout from "@layouts/Layout.astro";
+import Section from "@styles/Section.astro";
+import Text from "@styles/Text.astro";
+import Button from "@styles/Button.astro";
+import Input from "@styles/Input.astro";
+import Label from "@styles/Label.astro";
+import TextArea from "@styles/TextArea.astro";
+
+//tuhle sekci chce met editovatelnou v SANITY
+---
+
+<Layout title="Angličtina | Petr Walach">
+	<main>
+		<Section className="h-min pb-20">
+			<Title>O mně</Title>
+			<img src="" alt="" width="200" height="200" />
+			<Text>
+				Jsem vystudovaný anglista a amerikanista, který s angličtinou pracuje
+				více než 20 let. Největším přínosem pro mé studium angličtiny byly
+				domácí Ostravská univerzita, zahraniční MU v Irsku a NAU v USA. Získané
+				zkušenosti jsem využil při výuce angličtiny v soukromé sféře, jazykové
+				škole a také v zahraničí. Ve svém volném čase se věnuji mezinárodním
+				vztahům, politice, ekonomii a aktuálním dění.
+			</Text>
+			<div>
+				<Text className="text-secondary font-semibold">2016 - 2017</Text>
+				<Text>studium v Irsku</Text>
+			</div>
+			<div>
+				<Text className="text-secondary font-semibold">2017 - 2018</Text>
+				<Text>studium v USA</Text>
+			</div>
+			<div>
+				<Text className="text-secondary font-semibold">2019 - 2020</Text>
+				<Text>velvyslanectví ČR v Etiopii</Text>
+			</div>
+		</Section>
+	</main>
+</Layout>

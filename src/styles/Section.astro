@@ -1,0 +1,11 @@
+---
+interface Props {
+	className?: HTMLHtmlElement["className"];
+}
+
+const { className = "" } = Astro.props;
+---
+
+<section class={`p-5 pt-[9.6rem] h-full ${className}`}>
+	<slot />
+</section>
