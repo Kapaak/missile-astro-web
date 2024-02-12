@@ -9,7 +9,7 @@
 
   $: isSelected = (type: string) => {
     return $lectureLength === type
-      ? "text-secondary border-secondary z-10 "
+      ? "text-secondary border-secondary z-0"
       : "text-white border-[#3F529E]";
   };
 </script>

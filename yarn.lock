@@ -777,6 +777,13 @@
     "@portabletext/toolkit" "^2.0.10"
     "@portabletext/types" "^2.0.8"
 
+"@portabletext/svelte@^2.1.5":
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/@portabletext/svelte/-/svelte-2.1.5.tgz#5cc5e618b1858da868c6d02b68e0cfd0a35a7784"
+  integrity sha512-NDHIT6TRPnWCGnr0VjwsmYtuhZRVkD41aexajtElwsVLSoYUf/mxXd6PVxjg1e12DfubQo4aQv6lpRthIVbIIA==
+  dependencies:
+    "@portabletext/toolkit" "^2.0.10"
+
 "@portabletext/toolkit@^2.0.10":
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/@portabletext/toolkit/-/toolkit-2.0.10.tgz#ddcf88cb76b287ff9d5c94f69a6b370a9c9aba9c"
@@ -2430,6 +2437,11 @@ dot-prop@^5.2.0:
   integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
   dependencies:
     is-obj "^2.0.0"
+
+dotenv@^16.4.1:
+  version "16.4.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.1.tgz#1d9931f1d3e5d2959350d1250efab299561f7f11"
+  integrity sha512-CjA3y+Dr3FyFDOAMnxZEGtnW9KBR2M0JvvUtXNW+dYJL5ROWxP9DUHCwgFqpMk0OXCc0ljhaNTr2w/kutYIcHQ==
 
 dset@^3.1.2, dset@^3.1.3:
   version "3.1.3"

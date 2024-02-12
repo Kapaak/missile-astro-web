@@ -8,5 +8,6 @@
       "@styles/*": ["src/styles/*"],
       "@layouts/*": ["src/layouts/*"],
       "@utils": ["src/utils"],
+      "@types/*": ["src/types/*"],
     }}
 }

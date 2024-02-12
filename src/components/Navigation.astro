@@ -3,64 +3,63 @@ import Text from "@styles/Text.astro";
 import Hamburger from "../styles/Hamburger.astro";
 
 interface Props {
-	className?: HTMLHtmlElement["className"];
+  className?: HTMLHtmlElement["className"];
 }
 
 const { className = "" } = Astro.props;
 ---
 
 <nav class={`fixed top-0 px-5 flex w-full bg-primary z-10 ${className}`}>
-	<div
-		class="nav-items pointer-events-none opacity-0 flex flex-col justify-center items-center gap-[5.5rem] fixed h-full bg-primary left-0 w-full"
-	>
-		<Text className="nav-item text-[2.4rem]">
-			<a class="font-bold uppercase" href="/">Domů</a>
-		</Text>
-		<Text className="nav-item text-[2.4rem] font-bold">
-			<a class="font-bold uppercase" href="/about-me">O mně</a>
-		</Text>
-		<Text className="nav-item text-[2.4rem] font-bold">
-			<a class="font-bold uppercase" href="/pricing">Ceník</a>
-		</Text>
-		<Text className="nav-item text-[2.4rem] font-bold">
-			<a class="font-bold uppercase" href="/contact">Kontakt</a>
-		</Text>
-	</div>
+  <div
+    class="nav-items pointer-events-none opacity-0 flex flex-col justify-center items-center gap-[5.5rem] fixed h-full bg-primary left-0 w-full z-10"
+  >
+    <Text className="nav-item text-[2.4rem]">
+      <a class="font-bold uppercase" href="/">Domů</a>
+    </Text>
+    <Text className="nav-item text-[2.4rem] font-bold">
+      <a class="font-bold uppercase" href="/about-me">O mně</a>
+    </Text>
+    <Text className="nav-item text-[2.4rem] font-bold">
+      <a class="font-bold uppercase" href="/pricing">Ceník</a>
+    </Text>
+    <Text className="nav-item text-[2.4rem] font-bold">
+      <a class="font-bold uppercase" href="/contact">Kontakt</a>
+    </Text>
+  </div>
 
-	<Hamburger className="ml-auto z-10" />
+  <Hamburger className="ml-auto z-10" />
 </nav>
 
 <style>
-	.active {
-		opacity: 1;
-		transition: all 0.2s ease-in;
-		pointer-events: all;
-	}
+  .active {
+    opacity: 1;
+    transition: all 0.2s ease-in;
+    pointer-events: all;
+  }
 </style>
 
 <script>
-	document.addEventListener("astro:page-load", () => {
-		const hamburger = document.querySelector(".hamburger");
+  document.addEventListener("astro:page-load", () => {
+    const hamburger = document.querySelector(".hamburger");
 
-		hamburger?.addEventListener("click", () => {
-			const navItems = document.querySelector(".nav-items");
-			console.log("clicked");
-			navItems?.classList.toggle("active");
-			hamburger?.classList.toggle("active");
-		});
+    hamburger?.addEventListener("click", () => {
+      const navItems = document.querySelector(".nav-items");
+      navItems?.classList.toggle("active");
+      hamburger?.classList.toggle("active");
+    });
 
-		window.addEventListener("resize", () => {
-			const navItems = document.querySelector(".nav-items");
-			navItems?.classList.remove("active");
-			hamburger?.classList.remove("active");
-		});
+    window.addEventListener("resize", () => {
+      const navItems = document.querySelector(".nav-items");
+      navItems?.classList.remove("active");
+      hamburger?.classList.remove("active");
+    });
 
-		document.addEventListener("keydown", event => {
-			if (event.key === "Escape") {
-				const navItems = document.querySelector(".nav-items");
-				navItems?.classList.remove("active");
-				hamburger?.classList.remove("active");
-			}
-		});
-	});
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        const navItems = document.querySelector(".nav-items");
+        navItems?.classList.remove("active");
+        hamburger?.classList.remove("active");
+      }
+    });
+  });
 </script>
