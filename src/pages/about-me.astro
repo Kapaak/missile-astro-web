@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import Title from "@styles/Title.astro";
 import Layout from "@layouts/Layout.astro";
 import Section from "@styles/Section.astro";
@@ -13,7 +15,6 @@ import { urlFor } from "@utils/sanity";
 const aboutMe: AboutMe = await sanityClient.fetch(
   `*[_type == "about"][0]{description,experiences[]{from,to,title,image{asset->{...,metadata}}},image{asset->{...,metadata}}}`
 );
-//nechapu proc, ale dostavam image v experiences NULL
 ---
 
 <Layout title="Angličtina | Petr Walach">
