@@ -7,15 +7,33 @@ import TextBuilderParagraph from "@components/TextBuilderParagraph.svelte";
 import type { AboutMe } from "../types/sanity";
 import { sanityClient } from "sanity:client";
 import { PortableText } from "@portabletext/svelte";
+import { Image } from "astro:assets";
+import { urlFor } from "@utils/sanity";
 
-const aboutMe: AboutMe = await sanityClient.fetch(`*[_type == "about"][0]`);
+const aboutMe: AboutMe = await sanityClient.fetch(
+  `*[_type == "about"][0]{description,experiences[]{from,to,title,image{asset->{...,metadata}}},image{asset->{...,metadata}}}`
+);
+//nechapu proc, ale dostavam image v experiences NULL
 ---
 
 <Layout title="Angličtina | Petr Walach">
   <main>
     <Section className="h-min pb-20">
       <Title>O mně</Title>
-      <img src="" alt="" width="200" height="200" />
+      <Image
+        src={urlFor(aboutMe?.image)?.url()}
+        alt="Profilová fotka lektora angličtiny Petra Walacha"
+        width={aboutMe?.image?.asset?.metadata?.dimensions?.width}
+        height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
+        loading="lazy"
+        decoding="async"
+        style={{
+          maxWidth: "100%",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
 
       <PortableText
         value={aboutMe?.description}

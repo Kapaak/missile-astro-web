@@ -3,7 +3,7 @@
   export let lecturesNumber: number;
   export let descriptions: string[];
 
-  import { formatLocalePrice } from "@utils";
+  import { formatLocalePrice } from "@utils/format";
 
   const totalPrice = formatLocalePrice(price);
 
