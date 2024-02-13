@@ -4,6 +4,7 @@ export type AboutMeExperience = {
   from: string;
   to: string;
   title: string;
+  image: SanityImage;
 };
 
 export type AboutMe = {

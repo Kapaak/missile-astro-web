@@ -1,13 +1,13 @@
 ---
 interface Props {
-	className?: HTMLHtmlElement["className"];
+  className?: HTMLHtmlElement["className"];
 }
 
 const { className = "" } = Astro.props;
 ---
 
 <h1
-	class={`text-grey-200 uppercase font-normal font-secondary text-4xl ${className}`}
+  class={`text-grey-200 uppercase font-normal font-secondary text-4xl lg:text-7xl lg:leading-5 ${className}`}
 >
-	<slot />
+  <slot />
 </h1>

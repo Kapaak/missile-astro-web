@@ -139,6 +139,11 @@
     set-cookie-parser "^2.6.0"
     web-vitals "^3.4.0"
 
+"@astropub/icons@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@astropub/icons/-/icons-0.2.0.tgz#62e5c0ac1f89c84915c5596166e6a36c5a1125d9"
+  integrity sha512-qM/ldW/9rVHULNOZgz/23Yzgm2r3Iy2JJ1FuvJB6sFU67n61o1ImuXdHiaWSNoEHubD+IUkD9WG0hbhINgszqA==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.23.5":
   version "7.23.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.23.5.tgz#9009b69a8c602293476ad598ff53e4562e15c244"
@@ -5024,6 +5029,11 @@ periscopic@^3.1.0:
     "@types/estree" "^1.0.0"
     estree-walker "^3.0.0"
     is-reference "^3.0.0"
+
+phosphor-svelte@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/phosphor-svelte/-/phosphor-svelte-1.4.2.tgz#7a47a758b20e2b362d2c476680efdff82a3c3b5e"
+  integrity sha512-wdHKlZbE5D3ad1dd4K9bqWxpOb6gIwe+/ZeXGI9YpdKqECxqd+g3/NsLYE1+/hjlXixTWhQ7VMVIxTtBRXegCg==
 
 picocolors@^1.0.0:
   version "1.0.0"
