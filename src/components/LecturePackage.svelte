@@ -8,12 +8,14 @@
   const totalPrice = formatLocalePrice(price);
 
   const title =
-    lecturesNumber < 3 ? `${lecturesNumber} lekce` : `${lecturesNumber} lekcí`;
+    lecturesNumber < 5 ? `${lecturesNumber} lekce` : `${lecturesNumber} lekcí`;
 
   const pricePerLecture = formatLocalePrice(price / lecturesNumber);
 </script>
 
-<div class="flex flex-col gap-5 border border-grey-200 px-[2.4rem] py-[2.6rem]">
+<div
+  class="flex flex-col flex-1 gap-5 border border-grey-200 px-[2.4rem] py-[2.6rem] lg:min-h-[40rem]"
+>
   <p class="text-base text-grey-200 font-medium">balíček</p>
   <p class=" text-secondary text-3xl">{title}</p>
   <div>
@@ -29,7 +31,8 @@
     {/each}
   </ul>
 
-  <button class="text-base font-medium text-grey-200 bg-tetriary py-[1.2rem]"
+  <button
+    class="mt-auto text-base font-medium text-grey-200 bg-tetriary py-[1.2rem]"
     >Mám zájem</button
   >
 </div>

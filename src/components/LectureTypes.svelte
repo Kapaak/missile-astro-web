@@ -1,37 +1,39 @@
 <script lang="ts">
   import { clsx } from "clsx";
 
-  import { lectureType } from "../global/stores.ts";
+  import { lectureOptionId } from "@global/stores";
 
-  const updateLectureType = (value: string) => {
-    $lectureType = value;
+  const updateLectureType = (value: number) => {
+    $lectureOptionId = value;
   };
 
-  $: isSelected = (type: string) => {
-    return $lectureType === type
-      ? "text-secondary border-secondary z-0"
+  $: isSelected = (type: number) => {
+    return $lectureOptionId === type
+      ? "text-secondary border-secondary z-0 lg:font-semibold"
       : "text-white border-[#3F529E]";
   };
 </script>
 
 <div class="flex">
   <button
-    on:click={() => updateLectureType("individual")}
+    on:click={() => updateLectureType(0)}
     class={clsx(
-      "border-2 py-[.6rem] px-[.9rem] flex-1",
-      isSelected("individual")
+      "border-2 py-[.6rem] px-[.9rem] flex-1 lg:w-[15rem]",
+      isSelected(0)
     )}>individuální</button
   >
   <button
-    on:click={() => updateLectureType("group")}
+    on:click={() => updateLectureType(1)}
     class={clsx(
-      "border-2 mx-[-.2rem] py-[.6rem] px-[.9rem] flex-1",
-      isSelected("group")
+      "border-2 mx-[-.2rem] py-[.6rem] px-[.9rem] flex-1 lg:w-[15rem]",
+      isSelected(1)
     )}>skupinové</button
   >
   <button
-    on:click={() => updateLectureType("firm")}
-    class={clsx("border-2 py-[.6rem] px-[.9rem] flex-1", isSelected("firm"))}
-    >firemní</button
+    on:click={() => updateLectureType(2)}
+    class={clsx(
+      "border-2 py-[.6rem] px-[.9rem] flex-1 lg:w-[15rem]",
+      isSelected(2)
+    )}>firemní</button
   >
 </div>

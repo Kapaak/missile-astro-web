@@ -2,27 +2,47 @@
   import LectureTypes from "./LectureTypes.svelte";
   import LectureLength from "./LectureLength.svelte";
   import LecturePackage from "./LecturePackage.svelte";
+  import { lectureOptionId, lectureLengthId } from "@global/stores";
+  import type { SanityPricingOption } from "@sanity/types";
 
-  export let pricingOptions: any[];
-  console.log("🚀 ~ pricingOptions22:", pricingOptions);
+  export let pricingOptions: SanityPricingOption[];
+  $: selectedOption = pricingOptions[$lectureOptionId];
 </script>
 
-<div class="flex flex-col gap-5">
+<div class="flex flex-col gap-[3.2rem]">
   <p class="text-base text-grey-200 font-medium">
     Vyberte si preferovaný balíček a délku lekce:
   </p>
 
-  <LectureTypes />
-  <LectureLength />
+  <div class="flex flex-col gap-5 lg:flex-row lg:gap-[3.2rem]">
+    <LectureTypes />
+    <LectureLength lengthOptions={selectedOption?.pricingLengths} />
+  </div>
 
-  {#each pricingOptions as pricingOption}
+  <div class="flex flex-col gap-[3.2rem] lg:flex-row">
     <LecturePackage
-      lecturesNumber={1}
-      price={1000}
-      descriptions={[
-        pricingOption?.name,
-        "online",
-        "seznam zdrojů a aplikací pro samostudium",
-      ]}
-    />{/each}
+      lecturesNumber={selectedOption?.pricingLengths?.[$lectureLengthId]
+        ?.firstPackage?.lectureCount}
+      price={selectedOption?.pricingLengths?.[$lectureLengthId]?.firstPackage
+        ?.price}
+      descriptions={selectedOption?.pricingLengths?.[$lectureLengthId]
+        ?.firstPackage?.description}
+    />
+    <LecturePackage
+      lecturesNumber={selectedOption?.pricingLengths?.[$lectureLengthId]
+        ?.secondPackage?.lectureCount}
+      price={selectedOption?.pricingLengths?.[$lectureLengthId]?.secondPackage
+        ?.price}
+      descriptions={selectedOption?.pricingLengths?.[$lectureLengthId]
+        ?.secondPackage?.description}
+    />
+    <LecturePackage
+      lecturesNumber={selectedOption?.pricingLengths?.[$lectureLengthId]
+        ?.thirdPackage?.lectureCount}
+      price={selectedOption?.pricingLengths?.[$lectureLengthId]?.thirdPackage
+        ?.price}
+      descriptions={selectedOption?.pricingLengths?.[$lectureLengthId]
+        ?.thirdPackage?.description}
+    />
+  </div>
 </div>

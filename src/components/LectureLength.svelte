@@ -1,30 +1,33 @@
 <script lang="ts">
   import { clsx } from "clsx";
 
-  import { lectureLength } from "../global/stores.ts";
+  import type { SanityPricingLength } from "@sanity/types";
 
-  const updatelectureTime = (value: string) => {
-    $lectureLength = value;
+  import { lectureLengthId } from "@global/stores";
+
+  const updatelectureTime = (value: number) => {
+    $lectureLengthId = value;
   };
 
-  $: isSelected = (type: string) => {
-    return $lectureLength === type
-      ? "text-secondary border-secondary z-0"
+  export let lengthOptions: SanityPricingLength[];
+
+  $: selectedLength = lengthOptions[$lectureLengthId]?.title;
+
+  $: isSelected = (lectureLength: number) => {
+    return selectedLength === lectureLength
+      ? "text-secondary border-secondary z-0 lg:font-semibold"
       : "text-white border-[#3F529E]";
   };
 </script>
 
 <div class="flex">
-  <button
-    on:click={() => updatelectureTime("60")}
-    class={clsx("border-2 py-[.6rem] px-[.9rem] flex-1", isSelected("60"))}
-    >60 min</button
-  >
-  <button
-    on:click={() => updatelectureTime("90")}
-    class={clsx(
-      "border-2 mx-[-.2rem] py-[.6rem] px-[.9rem] flex-1",
-      isSelected("90")
-    )}>90 min</button
-  >
+  {#each lengthOptions as option, index}
+    <button
+      on:click={() => updatelectureTime(index)}
+      class={clsx(
+        "border-2 py-[.6rem] px-[.9rem] flex-1 lg:w-[15rem] mx-[-.1rem]",
+        isSelected(option?.title)
+      )}>{option?.title} min</button
+    >
+  {/each}
 </div>

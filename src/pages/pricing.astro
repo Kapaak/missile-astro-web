@@ -1,39 +1,36 @@
 ---
 export const prerender = false;
 
-import LecturePackage from "@components/LecturePackage.svelte";
-import LectureTypes from "@components/LectureTypes.svelte";
 import PricingSelection from "@components/PricingSelection.svelte";
 import Layout from "@layouts/Layout.astro";
 import Button from "@styles/Button.astro";
 import Section from "@styles/Section.astro";
 import Text from "@styles/Text.astro";
 import Title from "@styles/Title.astro";
+import { getPricingOptions } from "@sanity/api";
 
-import { sanityClient } from "sanity:client";
-
-const pricingOptions = await sanityClient.fetch(`*[_type == "pricing"]`);
+const pricingOptions = await getPricingOptions();
 ---
 
 <Layout title="Angličtina | Petr Walach">
   <main>
-    <Section>
-      <Title>Ceník</Title>
-      <Text>
-        Zajišťuji také firemní a skupinové kurzy, telefonickou výuku,
-        rychlokurzy angličtiny (například přípravu na pracovní pohovor),
-        případně doprovody, tlumočení či překlady. Vše záleží na naší
-        individuální domluvě. Zaujal jsem Vás? Budu rád, pokud mi napíšete či
-        zavoláte.
-      </Text>
-      <br />
-      <div>
+    <Section className="h-min max-w-[110rem] lg:h-full">
+      <div class="flex flex-col h-full lg:justify-center">
+        <Title>Ceník</Title>
+        <Text>
+          Zajišťuji také firemní a skupinové kurzy, telefonickou výuku,
+          rychlokurzy angličtiny (například přípravu na pracovní pohovor),
+          případně doprovody, tlumočení či překlady. Vše záleží na naší
+          individuální domluvě. Zaujal jsem Vás? Budu rád, pokud mi napíšete či
+          zavoláte.
+        </Text>
+        <br />
         <PricingSelection pricingOptions={pricingOptions} client:load />
-      </div>
 
-      <Button>
-        <a download="">Podmínky spolupráce a platba</a>
-      </Button>
+        <Button className="flex mt-5 mx-auto">
+          <a download="">Podmínky spolupráce a platba</a>
+        </Button>
+      </div>
     </Section>
   </main>
 </Layout>

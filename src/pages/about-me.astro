@@ -6,15 +6,12 @@ import Layout from "@layouts/Layout.astro";
 import Section from "@styles/Section.astro";
 import ExperienceItem from "@components/ExperienceItem.astro";
 import TextBuilderParagraph from "@components/TextBuilderParagraph.svelte";
-import type { AboutMe } from "../types/sanity";
-import { sanityClient } from "sanity:client";
 import { PortableText } from "@portabletext/svelte";
 import { Image } from "astro:assets";
-import { urlFor } from "@utils/sanity";
+import { urlFor } from "@sanity/utils";
+import { getAboutMe } from "@sanity/api";
 
-const aboutMe: AboutMe = await sanityClient.fetch(
-  `*[_type == "about"][0]{description,experiences[]{from,to,title,image{asset->{...,metadata}}},image{asset->{...,metadata}}}`
-);
+const aboutMe = await getAboutMe();
 ---
 
 <Layout title="Angličtina | Petr Walach">
@@ -81,3 +78,4 @@ const aboutMe: AboutMe = await sanityClient.fetch(
     </Section>
   </main>
 </Layout>
+@types/index
