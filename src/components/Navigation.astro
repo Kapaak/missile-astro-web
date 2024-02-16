@@ -9,57 +9,65 @@ interface Props {
 const { className = "" } = Astro.props;
 ---
 
-<nav class={`fixed top-0 px-5 flex w-full bg-primary z-10 ${className}`}>
+<nav
+  class={`fixed top-0 px-5 flex  w-full bg-primary z-10 lg:h-[7.8rem] ${className}`}
+>
   <div
-    class="nav-items pointer-events-none opacity-0 flex flex-col justify-center items-center gap-[5.5rem] fixed h-full bg-primary left-0 w-full z-10"
+    class="nav-items pointer-events-none opacity-0 flex max-w-[160rem] flex-col justify-center items-center gap-[5.5rem] fixed h-full bg-primary left-0 w-full z-10 lg:h-full lg:relative lg:flex-row lg:opacity-100 lg:pointer-events-auto lg:mx-auto"
   >
-    <Text className="nav-item text-[2.4rem]">
-      <a class="font-bold uppercase" href="/">Domů</a>
+    <Text className="nav-item font-bold lg:text-base">
+      <a class="font-bold uppercase text-[2rem] lg:text-base" href="/"> Domů</a>
     </Text>
-    <Text className="nav-item text-[2.4rem] font-bold">
-      <a class="font-bold uppercase" href="/about-me">O mně</a>
+    <Text className="nav-item font-bold lg:text-base">
+      <a class="font-bold uppercase text-[2rem] lg:text-base" href="/about-me"
+        >O mně</a
+      >
     </Text>
-    <Text className="nav-item text-[2.4rem] font-bold">
-      <a class="font-bold uppercase" href="/pricing">Ceník</a>
+    <Text className="nav-item font-bold lg:text-base">
+      <a class="font-bold uppercase text-[2rem] lg:text-base" href="/pricing"
+        >Ceník</a
+      >
     </Text>
-    <Text className="nav-item text-[2.4rem] font-bold">
-      <a class="font-bold uppercase" href="/contact">Kontakt</a>
+    <Text className="nav-itemfont-bold lg:text-base">
+      <a class="font-bold uppercase text-[2rem] lg:text-base" href="/contact"
+        >Kontakt</a
+      >
     </Text>
   </div>
 
-  <Hamburger className="ml-auto z-10" />
-</nav>
+  <Hamburger className="ml-auto z-10 lg:hidden" />
 
-<style>
-  .active {
-    opacity: 1;
-    transition: all 0.2s ease-in;
-    pointer-events: all;
-  }
-</style>
+  <style>
+    .active {
+      opacity: 1;
+      transition: all 0.2s ease-in;
+      pointer-events: all;
+    }
+  </style>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const hamburger = document.querySelector(".hamburger");
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      const hamburger = document.querySelector(".hamburger");
 
-    hamburger?.addEventListener("click", () => {
-      const navItems = document.querySelector(".nav-items");
-      navItems?.classList.toggle("active");
-      hamburger?.classList.toggle("active");
-    });
+      hamburger?.addEventListener("click", () => {
+        const navItems = document.querySelector(".nav-items");
+        navItems?.classList.toggle("active");
+        hamburger?.classList.toggle("active");
+      });
 
-    window.addEventListener("resize", () => {
-      const navItems = document.querySelector(".nav-items");
-      navItems?.classList.remove("active");
-      hamburger?.classList.remove("active");
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
+      window.addEventListener("resize", () => {
         const navItems = document.querySelector(".nav-items");
         navItems?.classList.remove("active");
         hamburger?.classList.remove("active");
-      }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          const navItems = document.querySelector(".nav-items");
+          navItems?.classList.remove("active");
+          hamburger?.classList.remove("active");
+        }
+      });
     });
-  });
-</script>
+  </script>
+</nav>
