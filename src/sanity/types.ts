@@ -58,3 +58,12 @@ export type SanityAboutMe = {
 export type SanityUploadDocument = {
   file: SanityFile;
 };
+
+export type SanityContact = {
+  fullName: string;
+  address: string;
+  email: string;
+  phone: string;
+  identificationNumber: string;
+  taxIdentificationNumber: string;
+};

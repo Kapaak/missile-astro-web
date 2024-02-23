@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import Title from "@styles/Title.astro";
 import Layout from "@layouts/Layout.astro";
 import Section from "@styles/Section.astro";
@@ -7,44 +9,54 @@ import Button from "@styles/Button.astro";
 import Input from "@styles/Input.astro";
 import Label from "@styles/Label.astro";
 import TextArea from "@styles/TextArea.astro";
+import { getSingleContact } from "@sanity/api";
+import { formatPhoneNumber } from "@utils/format";
 
-//tuhle sekci chce met editovatelnou v SANITY
+const contact = await getSingleContact();
 ---
 
 <Layout title="Angličtina | Petr Walach">
-	<main>
-		<Section className="h-min pb-20">
-			<div class="flex flex-col gap-[2.2rem]">
-				<Title>Kontaktuj mě</Title>
-				<div class="flex flex-col gap-[1rem]">
-					<Text>Petr Walach</Text>
-					<div class="flex gap-[.5rem]">
-						<Text className="font-bold">Adresa:</Text>
-						<Text>Kranichova 8, 710 00 Slezská Ostrava</Text>
-					</div>
-					<div class="flex gap-[.5rem]">
-						<Text className="font-bold">E-mail:</Text>
-						<Text>petr.walach@email.cz</Text>
-					</div>
-					<div class="flex gap-[.5rem]">
-						<Text className="font-bold">Telefon:</Text>
-						<Text>+420 608 252 880</Text>
-					</div>
-				</div>
-				<form class="flex flex-col gap-[2rem]" action="">
-					<div class="flex flex-col gap-[1rem]">
-						<Label>Jméno</Label>
-						<Input type="text" name="name" />
-						<Label>Příjmení</Label>
-						<Input type="text" name="surname" />
-						<Label>E-mail</Label>
-						<Input type="email" name="email" />
-						<Label>Text</Label>
-						<TextArea name="text" id="text" cols="30" rows="10" />
-					</div>
-					<Button type="submit">Odeslat dotaz</Button>
-				</form>
-			</div>
-		</Section>
-	</main>
+  <main>
+    <Section className="h-min pb-20">
+      <div class="flex flex-col gap-[2.2rem]">
+        <Title>Kontaktuj mě</Title>
+        <div class="flex flex-col gap-[1rem]">
+          <Text><strong>{contact?.fullName}</strong></Text>
+          <div class="flex gap-2">
+            <Text className="font-bold">Adresa:</Text>
+            <Text>{contact?.address}</Text>
+          </div>
+          <div class="flex gap-2">
+            <Text className="font-bold">E-mail:</Text>
+            <Text>{contact?.email}</Text>
+          </div>
+          <div class="flex gap-2">
+            <Text className="font-bold">Telefon:</Text>
+            <Text>{formatPhoneNumber(contact?.phone)}</Text>
+          </div>
+          <div class="flex gap-2">
+            <Text className="font-bold">IČ:</Text>
+            <Text>{contact?.identificationNumber}</Text>
+          </div>
+          <div class="flex gap-2">
+            <Text className="font-bold">DIČ:</Text>
+            <Text>{contact?.taxIdentificationNumber}</Text>
+          </div>
+        </div>
+        <form class="flex flex-col gap-[2rem]" action="">
+          <div class="flex flex-col gap-[1rem]">
+            <Label>Jméno</Label>
+            <Input type="text" name="name" />
+            <Label>Příjmení</Label>
+            <Input type="text" name="surname" />
+            <Label>E-mail</Label>
+            <Input type="email" name="email" />
+            <Label>Text</Label>
+            <TextArea name="text" id="text" cols="30" rows="10" />
+          </div>
+          <Button type="submit">Odeslat dotaz</Button>
+        </form>
+      </div>
+    </Section>
+  </main>
 </Layout>

@@ -1,5 +1,6 @@
 import type {
   SanityAboutMe,
+  SanityContact,
   SanityPricingOption,
   SanityUploadDocument,
 } from "./types";
@@ -27,4 +28,12 @@ export async function getSingleDocument(): Promise<SanityUploadDocument> {
   const singleDocument: SanityUploadDocument = await sanityClient.fetch(query);
 
   return singleDocument;
+}
+
+export async function getSingleContact(): Promise<SanityContact> {
+  const query = `*[_type == "contact"][0]{fullName,address,email,phone,identificationNumber,taxIdentificationNumber}`;
+
+  const singleContact: SanityContact = await sanityClient.fetch(query);
+
+  return singleContact;
 }
