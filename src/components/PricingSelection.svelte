@@ -19,7 +19,7 @@
     <LectureLength lengthOptions={selectedOption?.pricingLengths} />
   </div>
 
-  <div class="flex flex-col gap-[3.2rem] lg:flex-row">
+  <div class="flex flex-col gap-[3.2rem] lg:flex-row xl:gap-10">
     <LecturePackage
       lecturesNumber={selectedOption?.pricingLengths?.[$lectureLengthId]
         ?.firstPackage?.lectureCount}

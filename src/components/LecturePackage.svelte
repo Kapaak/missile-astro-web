@@ -14,7 +14,7 @@
 </script>
 
 <div
-  class="flex flex-col flex-1 gap-5 border border-grey-200 px-[2.4rem] py-[2.6rem] lg:min-h-[40rem]"
+  class="flex flex-col flex-1 gap-5 border border-grey-200 px-[2.4rem] py-[2.6rem] lg:min-h-[40rem] xl:min-h-[45rem]"
 >
   <p class="text-base text-grey-200 font-medium">balíček</p>
   <p class=" text-secondary text-3xl">{title}</p>
@@ -31,8 +31,11 @@
     {/each}
   </ul>
 
-  <button
-    class="mt-auto text-base font-medium text-grey-200 bg-tetriary py-[1.2rem]"
-    >Mám zájem</button
+  <a href="/contact" class="mt-auto">
+    <button
+      class="w-full text-base font-medium text-grey-200 bg-tetriary py-[1.2rem]"
+    >
+      Mám zájem
+    </button></a
   >
 </div>

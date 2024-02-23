@@ -1,4 +1,8 @@
-import type { SanityAboutMe, SanityPricingOption } from "./types";
+import type {
+  SanityAboutMe,
+  SanityPricingOption,
+  SanityUploadDocument,
+} from "./types";
 import { sanityClient } from "sanity:client";
 
 export async function getPricingOptions(): Promise<SanityPricingOption[]> {
@@ -15,4 +19,12 @@ export async function getAboutMe(): Promise<SanityAboutMe> {
   const aboutMe: SanityAboutMe = await sanityClient.fetch(query);
 
   return aboutMe;
+}
+
+export async function getSingleDocument(): Promise<SanityUploadDocument> {
+  const query = `*[_type == "uploadDocument"][0]{file{asset->{url}}}`;
+
+  const singleDocument: SanityUploadDocument = await sanityClient.fetch(query);
+
+  return singleDocument;
 }

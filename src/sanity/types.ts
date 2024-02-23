@@ -40,6 +40,8 @@ export type SanityImage = SanityImageWithAssetStub & {
   };
 };
 
+export type SanityFile = SanityImageWithAssetStub;
+
 export type SanityAboutMeExperience = {
   from: string;
   to: string;
@@ -51,4 +53,8 @@ export type SanityAboutMe = {
   description: any;
   experiences: SanityAboutMeExperience[];
   image: SanityImage;
+};
+
+export type SanityUploadDocument = {
+  file: SanityFile;
 };
