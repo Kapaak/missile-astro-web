@@ -19,5 +19,7 @@ export default defineConfig({
     useCdn: false,
     apiVersion: "2024-01-07"
   }), svelte()],
-  adapter: vercel()
+  adapter: vercel({
+    // edgeMiddleware:true
+  })
 });

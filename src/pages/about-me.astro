@@ -15,14 +15,30 @@ const aboutMe = await getAboutMe();
 ---
 
 <Layout title="Angličtina | Petr Walach">
-  <main>
-    <Section className="h-min pb-20 lg:h-full">
+  <Section className="h-min pb-20 lg:h-full">
+    <div
+      class="relative flex flex-col gap-12 lg:flex-row lg:h-full lg:justify-between"
+    >
       <div
-        class="relative flex flex-col gap-12 lg:flex-row lg:h-full lg:justify-between"
+        class="hidden h-full self-center lg:flex max-h-[60rem] lg:order-1 lg:flex-[1_1_40%]"
       >
-        <div
-          class="hidden h-full self-center lg:flex max-h-[60rem] lg:order-1 lg:flex-[1_1_40%]"
-        >
+        <Image
+          src={urlFor(aboutMe?.image)?.url()}
+          alt="Profilová fotka lektora angličtiny Petra Walacha"
+          width={aboutMe?.image?.asset?.metadata?.dimensions?.width}
+          height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
+          loading="lazy"
+          decoding="async"
+          class="h-full object-cover"
+        />
+      </div>
+
+      <div
+        class="flex flex-col gap-2 self-center lg:mt-[-14rem] lg:flex-[1_1_60%]"
+      >
+        <Title>O mně</Title>
+
+        <div class="flex flex-col gap-12">
           <Image
             src={urlFor(aboutMe?.image)?.url()}
             alt="Profilová fotka lektora angličtiny Petra Walacha"
@@ -30,52 +46,33 @@ const aboutMe = await getAboutMe();
             height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
             loading="lazy"
             decoding="async"
-            class="h-full object-cover"
+            class="max-w-full w-full h-full object-contain lg:hidden"
           />
-        </div>
 
-        <div
-          class="flex flex-col gap-2 self-center lg:mt-[-14rem] lg:flex-[1_1_60%]"
-        >
-          <Title>O mně</Title>
-
-          <div class="flex flex-col gap-12">
-            <Image
-              src={urlFor(aboutMe?.image)?.url()}
-              alt="Profilová fotka lektora angličtiny Petra Walacha"
-              width={aboutMe?.image?.asset?.metadata?.dimensions?.width}
-              height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
-              loading="lazy"
-              decoding="async"
-              class="max-w-full w-full h-full object-contain lg:hidden"
+          <div class="lg:max-w-[55rem] xl:max-w-[65rem]">
+            <PortableText
+              value={aboutMe?.description}
+              components={{
+                block: {
+                  normal: TextBuilderParagraph,
+                },
+              }}
             />
-
-            <div class="lg:max-w-[55rem] xl:max-w-[65rem]">
-              <PortableText
-                value={aboutMe?.description}
-                components={{
-                  block: {
-                    normal: TextBuilderParagraph,
-                  },
-                }}
-              />
-            </div>
-            <div class="flex flex-col gap-4">
-              {
-                aboutMe?.experiences?.map((experience) => (
-                  <ExperienceItem
-                    image={experience?.image}
-                    title={experience?.title}
-                    from={experience?.from}
-                    to={experience?.to}
-                  />
-                ))
-              }
-            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            {
+              aboutMe?.experiences?.map((experience) => (
+                <ExperienceItem
+                  image={experience?.image}
+                  title={experience?.title}
+                  from={experience?.from}
+                  to={experience?.to}
+                />
+              ))
+            }
           </div>
         </div>
       </div>
-    </Section>
-  </main>
+    </div>
+  </Section>
 </Layout>
-@types/index

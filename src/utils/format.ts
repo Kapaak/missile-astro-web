@@ -8,6 +8,15 @@ export const formatLocalePrice = (price: number) => {
   }).format(price);
 };
 
+export function phoneNumberWithPrefix(phoneNumber: string) {
+  const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, "CZ");
+  if (parsedPhoneNumber) {
+    return parsedPhoneNumber.number;
+  }
+
+  return phoneNumber;
+}
+
 export function formatPhoneNumber(phoneNumber: string) {
   const parsedPhoneNumber = parsePhoneNumberFromString(phoneNumber, "CZ");
   if (parsedPhoneNumber) {

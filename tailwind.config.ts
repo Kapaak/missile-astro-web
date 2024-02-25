@@ -17,6 +17,7 @@ export default {
         tetriary: "#3820C9",
         grey: {
           200: "#E7E7E7",
+          400: "#A6AFD2",
         },
       },
       spacing: () => ({
