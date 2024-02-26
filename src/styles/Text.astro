@@ -1,11 +1,11 @@
 ---
 interface Props {
-  className?: HTMLHtmlElement["className"];
+  class?: HTMLHtmlElement["className"];
   name?: string;
   id?: string;
 }
 
-const { className = "" } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
 <p class={`text-base text-grey-200 font-medium ${className}`}>

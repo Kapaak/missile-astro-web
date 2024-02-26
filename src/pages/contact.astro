@@ -30,36 +30,36 @@ const contact = await getSingleContact();
 ---
 
 <Layout title="Angličtina | Petr Walach">
-  <Section className="h-min pb-20 lg:h-full">
+  <Section class="h-min pb-20 lg:h-full">
     <div class="flex flex-col h-full lg:justify-center">
-      <Title className="mb-4">Kontaktuj mě</Title>
+      <Title class="mb-4">Kontaktuj mě</Title>
       <div class="flex flex-col gap-[2.2rem] lg:flex-row lg:justify-between">
         <div
           class="flex flex-col gap-[1rem] lg:flex-[1_1_40%] lg:ml-6 lg:gap-4 xl:flex-[1_1_50%]"
         >
           <Text><strong>{contact?.fullName}</strong></Text>
           <div class="flex gap-2">
-            <Text className="font-bold">Adresa:</Text>
+            <Text class="font-bold">Adresa:</Text>
             <Text>{contact?.address}</Text>
           </div>
           <div class="flex gap-2">
-            <Text className="font-bold">E-mail:</Text>
+            <Text class="font-bold">E-mail:</Text>
             <a href=`mailto:${contact?.email}`>
               <Text>{contact?.email}</Text>
             </a>
           </div>
           <div class="flex gap-2">
-            <Text className="font-bold">Telefon:</Text>
+            <Text class="font-bold">Telefon:</Text>
             <a href={`tel:${phoneNumberWithPrefix(contact?.phone)}`}>
               <Text>{formatPhoneNumber(contact?.phone)}</Text>
             </a>
           </div>
           <div class="flex gap-2">
-            <Text className="font-bold">IČ:</Text>
+            <Text class="font-bold">IČ:</Text>
             <Text>{contact?.identificationNumber}</Text>
           </div>
           <div class="flex gap-2">
-            <Text className="font-bold">DIČ:</Text>
+            <Text class="font-bold">DIČ:</Text>
             <Text>{contact?.taxIdentificationNumber}</Text>
           </div>
         </div>

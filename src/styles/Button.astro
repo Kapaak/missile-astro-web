@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 export interface Props
   extends HTMLAttributes<"button">,
     VariantProps<typeof button> {
-  className?: HTMLHtmlElement["className"];
+  class?: HTMLHtmlElement["className"];
 }
 
 /**
@@ -13,7 +13,7 @@ export interface Props
  * Astro.props (which are `undefined` by default)
  */
 const {
-  className = "",
+  class: className = "",
   intent = "primary",
   size = "medium",
   variant = "filled",

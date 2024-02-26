@@ -1,40 +1,40 @@
 ---
 type HTMLInputTypeAttribute =
-	| "button"
-	| "checkbox"
-	| "color"
-	| "date"
-	| "datetime-local"
-	| "email"
-	| "file"
-	| "hidden"
-	| "image"
-	| "month"
-	| "number"
-	| "password"
-	| "radio"
-	| "range"
-	| "reset"
-	| "search"
-	| "submit"
-	| "tel"
-	| "text"
-	| "time"
-	| "url"
-	| "week";
+  | "button"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "image"
+  | "month"
+  | "number"
+  | "password"
+  | "radio"
+  | "range"
+  | "reset"
+  | "search"
+  | "submit"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week";
 
 interface Props {
-	className?: HTMLHtmlElement["className"];
-	type?: HTMLInputTypeAttribute;
-	name?: string;
-	id?: string;
+  class?: HTMLHtmlElement["className"];
+  type?: HTMLInputTypeAttribute;
+  name?: string;
+  id?: string;
 }
 
-const { className = "", type = "text", ...rest } = Astro.props;
+const { class: className = "", type = "text", ...rest } = Astro.props;
 ---
 
 <input
-	class={`py-3 px-2 bg-tetriary text-grey-200 ${className}`}
-	type={type}
-	{...rest}
+  class={`py-3 px-2 bg-tetriary text-grey-200 ${className}`}
+  type={type}
+  {...rest}
 />

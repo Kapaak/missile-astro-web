@@ -3,10 +3,10 @@ import Text from "@styles/Text.astro";
 import Hamburger from "../styles/Hamburger.astro";
 
 interface Props {
-  className?: HTMLHtmlElement["className"];
+  class?: HTMLHtmlElement["className"];
 }
 
-const { className = "" } = Astro.props;
+const { class: className = "" } = Astro.props;
 ---
 
 <nav
@@ -15,7 +15,7 @@ const { className = "" } = Astro.props;
   <div
     class="nav-items pointer-events-none opacity-0 flex max-w-[160rem] flex-col justify-center items-center gap-[5.5rem] fixed h-full bg-primary left-0 w-full z-10 lg:h-full lg:relative lg:flex-row lg:opacity-100 lg:pointer-events-auto lg:mx-auto"
   >
-    <Text className="font-bold lg:text-base">
+    <Text class="font-bold lg:text-base">
       <a
         class="relative font-bold nav-item uppercase text-[2rem] lg:text-base hover:before:w-full"
         href="/"
@@ -23,19 +23,19 @@ const { className = "" } = Astro.props;
         Domů</a
       >
     </Text>
-    <Text className="font-bold lg:text-base">
+    <Text class="font-bold lg:text-base">
       <a
         class="relative font-bold nav-item uppercase text-[2rem] lg:text-base hover:before:w-full"
         href="/about-me">O mně</a
       >
     </Text>
-    <Text className="font-bold lg:text-base">
+    <Text class="font-bold lg:text-base">
       <a
         class="relative font-bold nav-item uppercase text-[2rem] lg:text-base hover:before:w-full"
         href="/pricing">Ceník</a
       >
     </Text>
-    <Text className="font-bold lg:text-base">
+    <Text class="font-bold lg:text-base">
       <a
         class="relative nav-item font-bold uppercase text-[2rem] lg:text-base hover:before:w-full"
         href="/contact">Kontakt</a
@@ -43,7 +43,7 @@ const { className = "" } = Astro.props;
     </Text>
   </div>
 
-  <Hamburger className="ml-auto z-10 lg:hidden" />
+  <Hamburger class="ml-auto z-10 lg:hidden" />
 
   <style>
     .nav-item::before {
