@@ -15,6 +15,7 @@ export default {
         secondary: "#F75252",
         "secondary-hover": "#f64141",
         tetriary: "#3820C9",
+        "tetriary-hover": "#3940C9",
         grey: {
           200: "#E7E7E7",
           400: "#A6AFD2",

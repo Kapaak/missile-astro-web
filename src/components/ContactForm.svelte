@@ -1,6 +1,11 @@
 <script lang="ts">
-  import toast from "svelte-french-toast";
+  import toast, { Toaster } from "svelte-french-toast";
   import axios from "axios";
+
+  import Label from "@styles/svelte/Label.svelte";
+  import Input from "@styles/svelte/Input.svelte";
+  import TextArea from "@styles/svelte/TextArea.svelte";
+  import Button from "@styles/svelte/Button.svelte";
 
   let responseMessage: string | null;
 
@@ -32,44 +37,22 @@
   }
 </script>
 
+<Toaster position="bottom-right" />
 <form
   class="flex flex-col gap-[2rem] lg:flex-[1_1_60%] lg:max-w-[70rem]"
   on:submit|preventDefault={submit}
 >
   <div class="flex flex-col gap-[1rem]">
-    <label for="firstName" class="text-grey-400 text-sm ml-2">Jméno</label>
-    <input
-      type="text"
-      required
-      name="firstName"
-      class="py-3 px-2 bg-tetriary text-grey-200"
-    />
-    <label for="lastName" class="text-grey-400 text-sm ml-2">Příjmení</label>
-    <input
-      type="text"
-      required
-      name="lastName"
-      class="py-3 px-2 bg-tetriary text-grey-200"
-    />
-    <label for="email" class="text-grey-400 text-sm ml-2">E-mail</label>
-    <input
-      type="email"
-      required
-      name="email"
-      class="py-3 px-2 bg-tetriary text-grey-200"
-    />
-    <label for="text" class="text-grey-400 text-sm ml-2">Text</label>
-    <textarea
-      name="text"
-      id="text"
-      cols="30"
-      rows="10"
-      class="py-3 px-2 bg-tetriary text-grey-200"
-    />
+    <Label labelFor="firstName" class="text-grey-400 ml-2">Jméno</Label>
+    <Input type="text" required name="firstName" />
+    <Label for="lastName" class="text-grey-400 ml-2">Příjmení</Label>
+    <Input type="text" required name="lastName" />
+    <Label for="email" class="text-grey-400 ml-2">E-mail</Label>
+    <Input type="email" required name="email" />
+    <Label for="text" class="text-grey-400 ml-2">Text</Label>
+    <TextArea name="text" id="text" cols="30" rows="10" />
   </div>
-  <button
-    type="submit"
-    class="font-medium py-[1.2rem] px-[4.3rem] transition-all duration-200 bg-secondary border-2 border-secondary text-white hover:bg-secondary-hover hover:border-secondary-hover lg:self-end"
-    >{responseMessage ?? "Odeslat dotaz"}</button
+  <Button type="submit" class="lg:self-end"
+    >{responseMessage ?? "Odeslat dotaz"}</Button
   >
 </form>

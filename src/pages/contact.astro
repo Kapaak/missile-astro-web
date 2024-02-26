@@ -1,10 +1,10 @@
 ---
 export const prerender = false;
 
-import Title from "@styles/Title.astro";
+import Title from "@styles/astro/Title.astro";
 import Layout from "@layouts/Layout.astro";
-import Section from "@styles/Section.astro";
-import Text from "@styles/Text.astro";
+import Section from "@styles/astro/Section.astro";
+import Text from "@styles/astro/Text.astro";
 import ContactForm from "@components/ContactForm.svelte";
 import { getSingleContact } from "@sanity/api";
 import { formatPhoneNumber, phoneNumberWithPrefix } from "@utils/format";

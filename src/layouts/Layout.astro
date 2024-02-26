@@ -7,7 +7,6 @@ import Navigation from "@components/Navigation.astro";
 import "@styles/base.css";
 
 import { ViewTransitions } from "astro:transitions";
-import { Toaster } from "svelte-french-toast";
 
 const { title } = Astro.props;
 ---
@@ -31,7 +30,6 @@ const { title } = Astro.props;
   </head>
   <body>
     <Navigation astro:after-swap />
-    <Toaster position="bottom-right" />
     <main>
       <slot />
     </main>

@@ -4,15 +4,14 @@
   import LecturePackage from "./LecturePackage.svelte";
   import { lectureOptionId, lectureLengthId } from "@global/stores";
   import type { SanityPricingOption } from "@sanity/types";
+  import Text from "@styles/svelte/Text.svelte";
 
   export let pricingOptions: SanityPricingOption[];
   $: selectedOption = pricingOptions[$lectureOptionId];
 </script>
 
 <div class="flex flex-col gap-[3.2rem]">
-  <p class="text-base text-grey-200 font-medium">
-    Vyberte si preferovaný balíček a délku lekce:
-  </p>
+  <Text>Vyberte si preferovaný balíček a délku lekce:</Text>
 
   <div class="flex flex-col gap-5 lg:flex-row lg:gap-[3.2rem]">
     <LectureTypes />
