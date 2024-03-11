@@ -6,6 +6,14 @@ import type {
 } from "./types";
 import { sanityClient } from "sanity:client";
 
+export async function getHome(): Promise<SanityAboutMe> {
+  const query = `*[_type == "home"][0]{description,experiences}`;
+
+  const home: SanityAboutMe = await sanityClient.fetch(query);
+
+  return home;
+}
+
 export async function getPricingOptions(): Promise<SanityPricingOption[]> {
   const query = `*[_type == "pricing"]|order(order)`;
 

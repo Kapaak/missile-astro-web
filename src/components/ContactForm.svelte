@@ -43,7 +43,7 @@
   on:submit|preventDefault={submit}
 >
   <div class="flex flex-col gap-[1rem]">
-    <Label labelFor="firstName" class="text-grey-400 ml-2">Jméno</Label>
+    <Label for="firstName" class="text-grey-400 ml-2">Jméno</Label>
     <Input type="text" required name="firstName" />
     <Label for="lastName" class="text-grey-400 ml-2">Příjmení</Label>
     <Input type="text" required name="lastName" />

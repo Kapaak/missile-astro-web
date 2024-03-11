@@ -9,8 +9,9 @@ import Button from "@styles/astro/Button.astro";
 import Section from "@styles/astro/Section.astro";
 import Text from "@styles/astro/Text.astro";
 import { CheckCircled } from "@astropub/icons";
+import { getHome } from "@sanity/api";
 
-//TODO: tuhle sekci taky editovatelnou
+const home = await getHome();
 ---
 
 <Layout title="Angličtina | Petr Walach">
@@ -34,35 +35,19 @@ import { CheckCircled } from "@astropub/icons";
           <Subheadline>Petr Walach</Subheadline>
         </div>
         <Text class="mt-4 text-center lg:text-left">
-          Poskytuji individuální doučování anglického jazyka na míru
+          {home?.description}
         </Text>
         <ul
           class="hidden flex-col gap-2 mb-2 sm:grid sm:grid-cols-3 sm:mt-10 lg:grid-cols-2"
         >
-          <li class="flex gap-2 items-center">
-            <CheckCircled color="white" size="28" />
-            <Text class="text-sm">Individuální lekce</Text>
-          </li>
-          <li class="flex gap-2 items-center">
-            <CheckCircled color="white" size="28" />
-            <Text class="text-sm">Individuální lekce</Text>
-          </li>
-          <li class="flex gap-2 items-center">
-            <CheckCircled color="white" size="28" />
-            <Text class="text-sm">Individuální lekce</Text>
-          </li>
-          <li class="flex gap-2 items-center">
-            <CheckCircled color="white" size="28" />
-            <Text class="text-sm">Individuální lekce</Text>
-          </li>
-          <li class="flex gap-2 items-center">
-            <CheckCircled color="white" size="28" />
-            <Text class="text-sm">Individuální lekce</Text>
-          </li>
-          <li class="flex gap-2 items-center">
-            <CheckCircled color="white" size="28" />
-            <Text class="text-sm">Individuální lekce</Text>
-          </li>
+          {
+            home?.experiences?.map((experience) => (
+              <li class="flex gap-2 items-center">
+                <CheckCircled color="white" size="28" />
+                <Text class="text-sm">{experience}</Text>
+              </li>
+            ))
+          }
         </ul>
         <div class="flex flex-col gap-[1.5rem] mt-auto lg:flex-row lg:pb-6">
           <a href="/contact">

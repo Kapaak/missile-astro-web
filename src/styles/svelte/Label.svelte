@@ -1,10 +1,7 @@
 <script lang="ts">
-  interface Props {
-    for?: string;
-    class?: HTMLHtmlElement["className"];
-  }
+  let { for: inputFor, class: className = "" } = $$props;
 
-  export let { for: inputFor, class: className = "" } = $$props as Props;
+  export { className as class, inputFor as for };
 </script>
 
 <label class={` text-grey-200 text-sm ${className}`} for={inputFor}>
