@@ -19,7 +19,7 @@
     "@emailjs/nodejs": "^2.2.0",
     "@portabletext/svelte": "^2.1.5",
     "@sanity/astro": "^2.2.0",
-    "astro": "^4.3.5",
+    "astro": "^4.7.0",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
