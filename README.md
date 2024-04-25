@@ -1,7 +1,9 @@
 # Image processing in Sharp
 
 Sharp error fixed: yarn add sharp --ignore-engines
+Tried higher version but didnt work so stick with ```"sharp": "^0.32.1"``` for the moment.
 Sanity error with SRR fixed: sanityIntegration() in astro.config.mjs instead of sanity()
+
 
 in order to add new package need to delete node_modules - this is due to sharp
 
