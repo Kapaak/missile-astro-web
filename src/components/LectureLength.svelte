@@ -15,8 +15,8 @@
 
   $: isSelected = (lectureLength: number) => {
     return selectedLength === lectureLength
-      ? "text-secondary border-secondary z-0 lg:font-semibold"
-      : "text-white border-[#3F529E]";
+      ? "border-secondary z-0"
+      : "border-[#3F529E]";
   };
 </script>
 
@@ -25,7 +25,7 @@
     <button
       on:click={() => updatelectureTime(index)}
       class={clsx(
-        "border-2 py-[.6rem] px-[.9rem] flex-1 lg:w-[15rem] mx-[-.1rem]",
+        "border-2 py-[.6rem] px-[.9rem] flex-1 lg:w-[15rem] mx-[-.1rem] text-white",
         isSelected(option?.title)
       )}>{option?.title} min</button
     >
