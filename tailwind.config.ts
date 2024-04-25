@@ -13,7 +13,7 @@ export default {
       colors: {
         primary: "#0F2786",
         secondary: "#F75252",
-        "secondary-hover": "#f64141",
+        "secondary-hover": "#D44646",
         tetriary: "#3820C9",
         "tetriary-hover": "#3940C9",
         grey: {
