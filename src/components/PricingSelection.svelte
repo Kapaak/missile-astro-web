@@ -7,7 +7,7 @@
   import Text from "@styles/svelte/Text.svelte";
 
   export let pricingOptions: SanityPricingOption[];
-  $: selectedOption = pricingOptions[$lectureOptionId];
+  $: selectedOption = pricingOptions[$lectureOptionId]?.pricingLengths;
 </script>
 
 <div class="flex flex-col gap-[3.2rem]">
@@ -15,33 +15,30 @@
 
   <div class="flex flex-col gap-5 lg:flex-row lg:gap-[3.2rem]">
     <LectureTypes />
-    <LectureLength lengthOptions={selectedOption?.pricingLengths} />
+    <LectureLength lengthOptions={selectedOption} />
   </div>
 
   <div class="flex flex-col gap-[3.2rem] lg:flex-row xl:gap-10">
     <LecturePackage
-      lecturesNumber={selectedOption?.pricingLengths?.[$lectureLengthId]
-        ?.firstPackage?.lectureCount}
-      price={selectedOption?.pricingLengths?.[$lectureLengthId]?.firstPackage
-        ?.price}
-      descriptions={selectedOption?.pricingLengths?.[$lectureLengthId]
-        ?.firstPackage?.description}
+      lecturesNumber={selectedOption?.[$lectureLengthId]?.firstPackage
+        ?.lectureCount}
+      price={selectedOption?.[$lectureLengthId]?.firstPackage?.price}
+      descriptions={selectedOption?.[$lectureLengthId]?.firstPackage
+        ?.description}
     />
     <LecturePackage
-      lecturesNumber={selectedOption?.pricingLengths?.[$lectureLengthId]
-        ?.secondPackage?.lectureCount}
-      price={selectedOption?.pricingLengths?.[$lectureLengthId]?.secondPackage
-        ?.price}
-      descriptions={selectedOption?.pricingLengths?.[$lectureLengthId]
-        ?.secondPackage?.description}
+      lecturesNumber={selectedOption?.[$lectureLengthId]?.secondPackage
+        ?.lectureCount}
+      price={selectedOption?.[$lectureLengthId]?.secondPackage?.price}
+      descriptions={selectedOption?.[$lectureLengthId]?.secondPackage
+        ?.description}
     />
     <LecturePackage
-      lecturesNumber={selectedOption?.pricingLengths?.[$lectureLengthId]
-        ?.thirdPackage?.lectureCount}
-      price={selectedOption?.pricingLengths?.[$lectureLengthId]?.thirdPackage
-        ?.price}
-      descriptions={selectedOption?.pricingLengths?.[$lectureLengthId]
-        ?.thirdPackage?.description}
+      lecturesNumber={selectedOption?.[$lectureLengthId]?.thirdPackage
+        ?.lectureCount}
+      price={selectedOption?.[$lectureLengthId]?.thirdPackage?.price}
+      descriptions={selectedOption?.[$lectureLengthId]?.thirdPackage
+        ?.description}
     />
   </div>
 </div>

@@ -20,7 +20,7 @@ const aboutMe = await getAboutMe();
       class="relative flex flex-col gap-12 lg:flex-row lg:h-full lg:justify-between lg:min-h-[55rem]"
     >
       <div
-        class="hidden h-full self-center lg:flex max-h-[60rem] lg:order-1 lg:flex-[1_1_40%]"
+        class="hidden h-full self-center lg:flex max-h-[75rem] lg:order-1 lg:flex-[1_1_40%]"
       >
         <Image
           src={urlFor(aboutMe?.image)?.url()}
@@ -29,7 +29,7 @@ const aboutMe = await getAboutMe();
           height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
           loading="lazy"
           decoding="async"
-          class="h-full object-cover"
+          class="h-full object-contain"
         />
       </div>
 
