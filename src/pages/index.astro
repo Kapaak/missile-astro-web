@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import Headline from "@styles/astro/Headline.astro";
 
 import HeroImage from "@assets/hero.jpg";
@@ -20,9 +20,9 @@ const home = await getHome();
       <div
         class="h-[30rem] w-full md:h-[40rem] lg:order-1 lg:flex-[1_1_40%] lg:h-full"
       >
-        <Picture
+        <Image
           src={HeroImage}
-          alt="Missile"
+          alt="Úvodní obrázek, na které jde vidět Big Ben v Londýně."
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           loading="lazy"
           decoding="async"
