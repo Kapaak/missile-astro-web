@@ -1,14 +1,18 @@
 # Image processing in Sharp
 
 Sharp error fixed: yarn add sharp --ignore-engines
-Tried higher version but didnt work so stick with ```"sharp": "^0.32.1"``` for the moment.
-Sanity error with SRR fixed: sanityIntegration() in astro.config.mjs instead of sanity()
-
+Tried higher version but didnt work so stick with `"sharp": "^0.32.1"` for the moment.
 
 in order to add new package need to delete node_modules - this is due to sharp
 
 Due to page transitions I need to listen to astro:page-load event, so that on page redirects
 the eventListeners are newly setup
+
+# Auto Deploy
+
+We are using Sanity headless CMS on every page for very little things but this made the page quite slow. To fix this I created "deploy hook" in
+Vercel and pasted the URL into Sanity -> API -> Webhooks. This way I dont need to use SSR, everytime I publish change the hook makes a new build.
+https://www.lauraricher.co.uk/blog/deploy-sanity-studio-changes-with-vercel/
 
 # Astro REST API
 
