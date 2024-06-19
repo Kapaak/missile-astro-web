@@ -20,15 +20,19 @@ const aboutMe = await getAboutMe();
       <div
         class="hidden h-full self-center lg:flex max-h-[75rem] lg:order-1 lg:flex-[1_1_40%]"
       >
-        <Image
-          src={urlFor(aboutMe?.image)?.url()}
-          alt="Profilová fotka lektora angličtiny Petra Walacha"
-          width={aboutMe?.image?.asset?.metadata?.dimensions?.width}
-          height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
-          loading="lazy"
-          decoding="async"
-          class="h-full object-contain"
-        />
+        {
+          aboutMe?.image && (
+            <Image
+              src={urlFor(aboutMe?.image)?.url()}
+              alt="Profilová fotka lektora angličtiny Petra Walacha"
+              width={aboutMe?.image?.asset?.metadata?.dimensions?.width}
+              height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
+              loading="lazy"
+              decoding="async"
+              class="h-full object-contain"
+            />
+          )
+        }
       </div>
 
       <div
@@ -37,15 +41,19 @@ const aboutMe = await getAboutMe();
         <Title>O mně</Title>
 
         <div class="flex flex-col gap-12">
-          <Image
-            src={urlFor(aboutMe?.image)?.url()}
-            alt="Profilová fotka lektora angličtiny Petra Walacha"
-            width={aboutMe?.image?.asset?.metadata?.dimensions?.width}
-            height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
-            loading="lazy"
-            decoding="async"
-            class="max-w-full w-full h-full object-contain lg:hidden"
-          />
+          {
+            aboutMe?.image && (
+              <Image
+                src={urlFor(aboutMe?.image)?.url()}
+                alt="Profilová fotka lektora angličtiny Petra Walacha"
+                width={aboutMe?.image?.asset?.metadata?.dimensions?.width}
+                height={aboutMe?.image?.asset?.metadata?.dimensions?.height}
+                loading="lazy"
+                decoding="async"
+                class="max-w-full w-full h-full object-contain lg:hidden"
+              />
+            )
+          }
 
           <div class="lg:max-w-[55rem] xl:max-w-[65rem]">
             <PortableText

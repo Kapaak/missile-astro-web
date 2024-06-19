@@ -6,7 +6,7 @@ import type { SanityFile } from "./types";
 const builder = imageUrlBuilder(sanityClient);
 
 export function urlFor(source: SanityImageSource) {
-  return builder.image(source);
+  return builder?.image(source);
 }
 
 export function getFileUrl(source: SanityFile) {
