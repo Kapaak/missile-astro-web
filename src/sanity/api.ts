@@ -1,6 +1,8 @@
 import type {
   SanityAboutMe,
   SanityContact,
+  SanityCourse,
+  SanityLecture,
   SanityPricingOption,
   SanityUploadDocument,
 } from "./types";
@@ -18,6 +20,22 @@ export async function getPricingOptions(): Promise<SanityPricingOption[]> {
   const query = `*[_type == "pricing"]|order(order)`;
 
   const pricingOptions: SanityPricingOption[] = await sanityClient.fetch(query);
+
+  return pricingOptions;
+}
+
+export async function getLectures(): Promise<SanityLecture[]> {
+  const query = `*[_type == "lecture"]{"id":_id,count,"packageValue":name,time,price,"courseSlug":course->.slug.current,"courseName":course->.name,"courseOrder":course->.order,description}`;
+
+  const pricingOptions: SanityLecture[] = await sanityClient.fetch(query);
+
+  return pricingOptions;
+}
+
+export async function getCourses(): Promise<SanityCourse[]> {
+  const query = `*[_type == "course"]{"id":_id,"slug":slug.current,name,order}|order(order)`;
+
+  const pricingOptions: SanityLecture[] = await sanityClient.fetch(query);
 
   return pricingOptions;
 }

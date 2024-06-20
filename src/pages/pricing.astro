@@ -5,11 +5,19 @@ import Button from "@styles/astro/Button.astro";
 import Section from "@styles/astro/Section.astro";
 import Text from "@styles/astro/Text.astro";
 import Title from "@styles/astro/Title.astro";
-import { getPricingOptions, getSingleDocument } from "@sanity/api";
+import {
+  getLectures,
+  getCourses,
+  getPricingOptions,
+  getSingleDocument,
+} from "@sanity/api";
 import { getFileUrl } from "@sanity/utils";
+import PricingGroups from "@components/PricingGroups.svelte";
 
-const pricingOptions = await getPricingOptions();
 const downloadableDocument = await getSingleDocument();
+
+const lectures = await getLectures();
+const courses = await getCourses();
 ---
 
 <Layout title="Angličtina | Petr Walach">
@@ -24,7 +32,7 @@ const downloadableDocument = await getSingleDocument();
         zavoláte.
       </Text>
       <br />
-      <PricingSelection pricingOptions={pricingOptions} client:load />
+      <PricingGroups lectures={lectures} courses={courses} client:load />
 
       <Button class="flex mt-5 mx-auto">
         <a

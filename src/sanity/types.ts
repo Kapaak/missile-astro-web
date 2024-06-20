@@ -5,6 +5,25 @@ export type SanityPricingOption = {
   pricingLengths: SanityPricingLength[];
 };
 
+export type SanityLecture = {
+  id?: string;
+  price?: number;
+  count?: number;
+  courseName?: string;
+  courseSlug?: string;
+  courseOrder?: number;
+  description?: string[];
+  packageValue?: 1 | 2 | 3;
+  time?: string;
+};
+
+export type SanityCourse = {
+  id?: string;
+  name?: number;
+  slug?: string;
+  order?: number;
+};
+
 export type SanityPricingLength = {
   _key: string;
   title: number;
