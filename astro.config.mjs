@@ -21,6 +21,9 @@ export default defineConfig({
     apiVersion: "2024-01-07"
   }), svelte()],
   adapter: vercel({
-    edgeMiddleware:true
+    edgeMiddleware:true,
+    webAnalytics:{
+      enabled:true,
+    }
   })
 });
