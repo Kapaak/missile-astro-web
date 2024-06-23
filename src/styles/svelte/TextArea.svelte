@@ -5,6 +5,7 @@
     id?: string;
     cols?: number | null;
     rows?: number | null;
+    minlength?: number | null;
   }
 
   const { class: className = "", ...rest } = $$props as Props;

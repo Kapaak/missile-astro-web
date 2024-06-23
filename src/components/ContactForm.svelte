@@ -50,7 +50,7 @@
     <Label for="email" class="text-grey-400 ml-2">E-mail</Label>
     <Input type="email" required name="email" />
     <Label for="text" class="text-grey-400 ml-2">Text</Label>
-    <TextArea name="text" id="text" cols="30" rows="7" />
+    <TextArea name="text" id="text" cols="30" rows="7" minlength="6" required />
   </div>
   <Button type="submit" class="lg:self-end"
     >{responseMessage ?? "Odeslat dotaz"}</Button
