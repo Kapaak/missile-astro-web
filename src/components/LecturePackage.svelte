@@ -28,7 +28,7 @@
 
   <ul class="ml-6">
     {#each descriptions as description}
-      <li class="list-image-[url(src/assets/completed.png)]">
+      <li class="list-image-[url(./src/assets/completed.png)]">
         <Text class="ml-1">{description}</Text>
       </li>
     {/each}
