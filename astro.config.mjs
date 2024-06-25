@@ -24,6 +24,6 @@ export default defineConfig({
     edgeMiddleware:true,
     webAnalytics:{
       enabled:true,
-    }
+    },
   })
 });
