@@ -8,12 +8,12 @@
 
   import { formatLocalePrice } from "@utils/format";
 
-  const totalPrice = formatLocalePrice(price);
+  $: totalPrice = formatLocalePrice(price);
 
-  const title =
+  $: title =
     lecturesNumber < 5 ? `${lecturesNumber} lekce` : `${lecturesNumber} lekcí`;
 
-  const pricePerLecture = formatLocalePrice(price / lecturesNumber);
+  $: pricePerLecture = formatLocalePrice(price / lecturesNumber);
 </script>
 
 <div
