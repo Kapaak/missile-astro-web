@@ -8,7 +8,7 @@ export const POST: APIRoute = async ({ request }) => {
     const formData = await request?.formData();
 
     const templateParams = {
-      to_name: "pavel.kapaak@gmail.com",
+      to_name: "walach.english@gmail.com",
       from_name: formData.get("email"),
       subject: `Přihláška na kurz Angličtiny od ${formData.get(
         "firstName"
