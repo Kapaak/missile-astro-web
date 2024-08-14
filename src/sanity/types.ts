@@ -70,6 +70,7 @@ export type SanityAboutMeExperience = {
 
 export type SanityAboutMe = {
   description: any;
+  descriptionMobile: string;
   experiences: SanityAboutMeExperience[];
   image: SanityImage;
 };

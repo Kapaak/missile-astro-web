@@ -10,13 +10,15 @@ import Section from "@styles/astro/Section.astro";
 import Text from "@styles/astro/Text.astro";
 import { CheckCircled } from "@astropub/icons";
 import { getHome } from "@sanity/api";
+import { PortableText } from "@portabletext/svelte";
+import TextBuilderParagraph from "@components/TextBuilderParagraph.svelte";
 
 const home = await getHome();
 ---
 
 <Layout title="Angličtina | Petr Walach">
   <Section class="grid lg:items-center">
-    <div class="flex flex-col gap-4 h-full max-h-[75rem] lg:flex-row">
+    <div class="flex flex-col gap-4 h-full max-h-[75rem] lg:flex-row lg:gap-6">
       <div
         class="h-[30rem] w-full md:h-[40rem] lg:order-1 lg:flex-[1_1_40%] lg:h-full"
       >
@@ -34,9 +36,21 @@ const home = await getHome();
           <Headline>Výuka angličtiny</Headline>
           <Subheadline>Petr Walach</Subheadline>
         </div>
-        <Text class="mt-4 text-center lg:text-left">
-          {home?.description}
+        <Text class="mt-4 text-center lg:hidden">
+          {home?.descriptionMobile}
         </Text>
+        <div class="hidden lg:flex flex-col gap-2">
+          <Text class="hidden mt-4 lg:text-left lg:block">
+            <PortableText
+              value={home?.description}
+              components={{
+                block: {
+                  normal: TextBuilderParagraph,
+                },
+              }}
+            />
+          </Text>
+        </div>
         <ul
           class="hidden flex-col gap-2 mb-2 sm:grid sm:grid-cols-3 sm:mt-10 lg:grid-cols-2"
         >

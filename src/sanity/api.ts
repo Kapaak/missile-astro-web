@@ -9,7 +9,7 @@ import type {
 import { sanityClient } from "sanity:client";
 
 export async function getHome(): Promise<SanityAboutMe> {
-  const query = `*[_type == "home"][0]{description,experiences}`;
+  const query = `*[_type == "home"][0]{description,descriptionMobile,experiences}`;
 
   const home: SanityAboutMe = await sanityClient.fetch(query);
 
