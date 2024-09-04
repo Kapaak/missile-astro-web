@@ -1,16 +1,9 @@
 ---
-import PricingSelection from "@components/PricingSelection.svelte";
 import Layout from "@layouts/Layout.astro";
 import Button from "@styles/astro/Button.astro";
 import Section from "@styles/astro/Section.astro";
-import Text from "@styles/astro/Text.astro";
 import Title from "@styles/astro/Title.astro";
-import {
-  getLectures,
-  getCourses,
-  getPricingOptions,
-  getSingleDocument,
-} from "@sanity/api";
+import { getLectures, getCourses, getSingleDocument } from "@sanity/api";
 import { getFileUrl } from "@sanity/utils";
 import PricingGroups from "@components/PricingGroups.svelte";
 
@@ -24,13 +17,6 @@ const courses = await getCourses();
   <Section class="h-min max-w-[110rem] xl:h-full">
     <div class="flex flex-col h-full lg:justify-center xl:min-h-[85rem]">
       <Title>Ceník</Title>
-      <Text>
-        Zajišťuji také firemní a skupinové kurzy, telefonickou výuku,
-        rychlokurzy angličtiny (například přípravu na pracovní pohovor),
-        případně doprovody, tlumočení či překlady. Vše záleží na naší
-        individuální domluvě. Zaujal jsem Vás? Budu rád, pokud mi napíšete či
-        zavoláte.
-      </Text>
       <br />
       <PricingGroups lectures={lectures} courses={courses} client:load />
 

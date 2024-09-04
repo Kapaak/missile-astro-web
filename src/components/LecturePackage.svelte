@@ -12,18 +12,14 @@
 
   $: title =
     lecturesNumber < 5 ? `${lecturesNumber} lekce` : `${lecturesNumber} lekcí`;
-
-  $: pricePerLecture = formatLocalePrice(price / lecturesNumber);
 </script>
 
 <div
   class="flex flex-col flex-1 gap-5 border border-grey-200 px-[2.4rem] py-[2.6rem] lg:min-h-[40rem] xl:min-h-[45rem]"
 >
-  <Text>balíček</Text>
   <p class=" text-secondary text-3xl">{title}</p>
   <div>
     <Text class="text-3xl">{totalPrice}</Text>
-    <Text>{pricePerLecture} / lekci</Text>
   </div>
 
   <ul class="ml-6">
