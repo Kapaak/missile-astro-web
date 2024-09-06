@@ -8,10 +8,12 @@
 
   import { formatLocalePrice } from "@utils/format";
 
-  $: totalPrice = formatLocalePrice(price);
+  // $: totalPrice = formatLocalePrice(price);
 
   $: title =
     lecturesNumber < 5 ? `${lecturesNumber} lekce` : `${lecturesNumber} lekcí`;
+
+  $: pricePerLecture = Math.floor(price / lecturesNumber);
 </script>
 
 <div
@@ -19,7 +21,7 @@
 >
   <p class=" text-secondary text-3xl">{title}</p>
   <div>
-    <Text class="text-3xl">{totalPrice}</Text>
+    <Text class="text-3xl">{pricePerLecture} Kč / lekci</Text>
   </div>
 
   <ul class="ml-6">
