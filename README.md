@@ -3,6 +3,8 @@ Website for english teacher Petr Walach.
 
 This website consists of frontend created in ```Astro.js```, ```Svelte``` and headless CMS in ```Sanity.io```.
 
+> Repository for the CMS is located [here](https://github.com/Kapaak/missile-sanity)
+
 ## 🚀 Project Structure
 
 ```text
